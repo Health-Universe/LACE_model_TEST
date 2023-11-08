@@ -114,5 +114,10 @@ ed_visits = st.number_input("Number of emergency department visits in the last 6
 
 if st.button("Calculate LACE Score"):
     lace_score = calculate_lace_score(length_of_stay, acute_admission, charlson_index, ed_visits)
-    st.subheader(f"Your LACE Index Score is: {lace_score}")
-
+    st.subheader(f"The patient's LACE index score is: {lace_score}")
+    if lace_score < 5:
+        st.text("###Based on the LACE score, the patient is at low risk for hospital readmission.")
+    elif 5 <= lace_score <= 9:
+        st.text("###Based on the LACE score, the patient is at moderate risk for hospital readmission.")
+    elif lace_score >= 10:
+        st.text("###Based on the LACE score, teh patient is at high risk for hospital readmission.")
