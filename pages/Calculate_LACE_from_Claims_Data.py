@@ -308,7 +308,7 @@ def convert_beneficiary_info_to_dataframe(beneficiaries_):
     df.columns = ['Beneficiary ID', 'Admission Date', 'Discharge Status', 'Discharge Date', "LACE Score", "30-Day Readmission Risk", "Length of Stay (Days)", 
                   "Admission Is Acute", "Comorbidities", "Comorbidity Index", "Previous Emergency Dept Use (Past 6 Months)"]
     df = df[['Beneficiary ID', 'LACE Score', "30-Day Readmission Risk", "Admission Is Acute", "Comorbidity Index", 
-             "Previous Emergency Dept Use (Past 6 Months)", "Comorbidities", "Admission Date", "Discharge Date", "Discharge Status"]]
+             "Previous Emergency Dept Use (Past 6 Months)", "Comorbidities"]]
     return df
 
 
