@@ -318,11 +318,11 @@ def display_beneficiaries_dataframe(df):
     Behavior: displays df on streamlit with options to sort, etc.
     """
     # def highlight_rows(row):
-    #     if s["30-Day Readmission Risk"] == "HIGH":
+    #     if row["30-Day Readmission Risk"] == "HIGH":
     #         return ['background-color: red']*len(row)
-    #     elif s["30-Day Readmission Risk"] == "INTERMEDIATE":
+    #     elif row["30-Day Readmission Risk"] == "INTERMEDIATE":
     #         return ['background-color: yellow']*len(row)
-    #     elif s["30-Day Readmission Risk"] == "LOW":
+    #     elif row["30-Day Readmission Risk"] == "LOW":
     #         return ['background-color: green']*len(row)
 
     st.markdown(
