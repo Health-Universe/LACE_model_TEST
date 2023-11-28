@@ -348,7 +348,6 @@ def process_dataframe(df):
     nrows = len(df.axes[0])
     beneficiaries = dict()
     expired_beneficiaries = set()
-    # progress_bar = st.progress(0, "Processing claims file.")
     # Go row by row, process the data, and create a dictionary of beneficiaries with LACE scores and other important info
     for index, row in df.iterrows():
         bene_id = row["BENE_ID"]
@@ -393,7 +392,6 @@ def process_dataframe(df):
             elif admsn_date > beneficiaries[bene_id]["admission_date"]:
                entry = process_row(row)
                beneficiaries[bene_id] = entry
-        # progress_bar.progress((index + 1)/nrows, "Processing claims file.")
         
     # Output patients LACE scores along with other pertinent information
     df_new = convert_beneficiary_info_to_dataframe(beneficiaries)
@@ -416,12 +414,17 @@ def main():
     "2. **Example File:** If you're new to the app or would like to see a demonstration, click "
     "'Try an example file' to use a pre-loaded dataset and view the LACE scores calculated by the app."
     )
-    
+
     df = upload_and_process_file()
+
+    progress= st.empty()
+    progress.info("Calculating patients' LACE scores. Depending on the file size \
+                   and internet connection, this might take up to 30+ seconds.")
     df_new = process_dataframe(df)
 
     # Display on Streamlit
     display_beneficiaries_dataframe(df_new)
+    progress.empty()
     
     # Print out time the program took to run to console 
     # (for debugging and performance monitoring purposes)
