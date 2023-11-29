@@ -1,7 +1,3 @@
-Sure, you can extend your README.md to include information about the LACE score calculation from claims data. You should describe how the application processes the Medicare claims data to calculate the LACE score, what the user needs to provide, and what output they should expect. Here's how you might integrate this into your existing README:
-
----
-
 # LACE_model
 
 The LACE Index Score Calculator is a Streamlit web application designed to assess the risk of post-discharge readmission or death within 30 days for patients who have been hospitalized. The calculator implements the LACE index scoring system, which takes into account the Length of stay (L), Acuity of admission (A), Comorbidities (C), and Emergency department visits (E).
