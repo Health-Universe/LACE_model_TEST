@@ -10,6 +10,9 @@ EMERGENCY = True
 NOT_EMERGENCY = False
 PATIENT_DISCHARGE_STATUS_CODES = {"Still a patient": 30, "Transferred to other inpatient hospital": 5, "Expired": 20}
 
+
+# TODO: Inpatient vs outpatient identification (easy way: los < 1) | Low-Med
+
 # Code for uploading and processing file given by user
 def upload_and_process_file():
     """
@@ -24,7 +27,7 @@ def upload_and_process_file():
     columns_to_use += icd_cols
     
     help = 'The file must have the following columms: "BENE_ID", "CLM_ID", "REV_CNTR", "CLM_ADMSN_DT", \
-            "NCH_BENE_DSCHRG_DT", "PTNT_DSCHRG_STUS_CD", "PRNCPAL_DGNS_CD", "HCPCS_CD".'
+            "NCH_BENE_DSCHRG_DT", "PTNT_DSCHRG_STUS_CD", "PRNCPAL_DGNS_CD", "HCPCS_CD", and "Previous Emergency Dept Use (Past 6 Months)".'
 
     file = st.file_uploader("Upload medicare fee-for-service claim file:", accept_multiple_files=False, type=".csv", key="claims_upload", help=help)
     try_example = st.button("Try an example file", help="Source of file: https://data.cms.gov/sites/default/files/2023-04/67157de9-d962-4af0-bf0e-3578b3afec58/inpatient.csv")
